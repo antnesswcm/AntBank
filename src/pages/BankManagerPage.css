@@ -1,0 +1,48 @@
+.bank-manager-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+  gap: 16px;
+  min-height: 0;
+  padding-top: 24px;
+}
+
+.bank-manager-container > .selectable-list {
+  margin-bottom: 8px;
+  flex: 1 1 auto;
+  min-height: 200px;
+  max-height: 400px;
+}
+
+.bank-manager-container > button {
+  flex-shrink: 0;
+}
+
+.bank-badge.builtin {
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.bank-remove-btn {
+  width: 24px;
+  height: 24px;
+  border: none;
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bank-remove-btn:hover {
+  background: var(--error-color);
+  color: white;
+}

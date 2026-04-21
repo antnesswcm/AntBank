@@ -1,0 +1,20 @@
+.settings-group {
+  margin-bottom: 24px;
+}
+
+.settings-group:last-child {
+  margin-bottom: 0;
+}
+
+.settings-group-title {
+  font-size: 16px;
+  font-weight: 600;
+  /* margin-bottom: 16px; */
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.settings-group-content {
+  display: flex;
+  flex-direction: column;
+}

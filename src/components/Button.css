@@ -1,0 +1,138 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-small {
+  height: 24px;
+  padding: 0 12px;
+  font-size: 13px;
+}
+
+.btn-medium {
+  height: 32px;
+  padding: 0 16px;
+  font-size: 14px;
+}
+
+.btn-large {
+  height: 40px;
+  padding: 0 20px;
+  font-size: 16px;
+}
+
+.btn-block {
+  width: 100%;
+}
+
+.btn-primary {
+  background: var(--primary-color);
+  color: #fff;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: var(--primary-hover);
+}
+
+.btn-secondary {
+  background: var(--bg-sidebar);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: var(--border-color);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+.btn-ghost:hover:not(:disabled) {
+  background: var(--bg-sidebar);
+}
+
+.btn-danger {
+  background: var(--error-color);
+  color: #fff;
+}
+
+.btn-danger:hover:not(:disabled) {
+  background: #dc2626;
+}
+
+.btn-loading {
+  position: relative;
+}
+
+.btn-spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.btn-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-icon-left {
+  margin-right: 0;
+}
+
+.btn-icon-right {
+  margin-left: 4px;
+}
+
+.btn-icon-only {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.btn-icon-only.btn-small {
+  width: 24px;
+  height: 24px;
+  min-width: 24px;
+}
+
+.btn-icon-only.btn-medium {
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
+}
+
+.btn-icon-only.btn-large {
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+}
+
+.btn-text {
+  display: inline-flex;
+  align-items: center;
+}

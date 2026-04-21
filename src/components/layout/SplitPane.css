@@ -1,0 +1,60 @@
+.split-pane {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+}
+
+.split-pane.dragging {
+  cursor: col-resize;
+  user-select: none;
+}
+
+.split-pane.dragging * {
+  pointer-events: none;
+}
+
+.split-pane-left {
+  flex-shrink: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.split-pane-handle-area {
+  flex-shrink: 0;
+  width: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.split-pane-handle {
+  width: 18px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: col-resize;
+}
+
+.split-pane-handle::before {
+  content: '';
+  width: 6px;
+  height: 56px;
+  background: var(--border-color);
+  transition: background 0.2s;
+}
+
+.split-pane-handle:hover::before,
+.split-pane-handle.active::before {
+  background: var(--primary-color);
+}
+
+.split-pane-right {
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}

@@ -1,0 +1,339 @@
+.sidebar {
+  --sidebar-transition-duration: 0.4s;
+  --sidebar-transition-timing: ease;
+  --submenu-animation-duration: 0.2s;
+  width: 220px;
+  background: var(--bg-sidebar);
+  border-right: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  transition: width var(--sidebar-transition-duration) var(--sidebar-transition-timing);
+  overflow: hidden;
+  user-select: none;
+}
+
+.sidebar-header {
+  position: relative;
+  padding: 0 6px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.sidebar-header h1 {
+  position: absolute;
+  left: 38px;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-primary);
+  white-space: nowrap;
+  opacity: 1;
+  transition: opacity var(--sidebar-transition-duration) var(--sidebar-transition-timing);
+}
+
+.sidebar-toggle-btn {
+  position: absolute;
+  left: 6px;
+  width: 28px;
+  height: 28px;
+  border: none;
+  background: var(--bg-hover);
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+}
+
+.sidebar-toggle-btn:hover {
+  background: var(--border-color);
+}
+
+.sidebar-section-divider {
+  height: 1px;
+  background: var(--border-color);
+  flex-shrink: 0;
+  margin: 12px 0;
+}
+
+.sidebar.collapsed {
+  width: 40px;
+}
+
+.sidebar.collapsed .sidebar-header {
+  padding: 0;
+}
+
+.sidebar.collapsed .sidebar-header h1 {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.sidebar.collapsed .sidebar-toggle-btn {
+  left: 6px;
+}
+
+.sidebar-nav {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-nav.nav-align-top {
+  justify-content: flex-start;
+}
+
+.sidebar-nav.nav-align-center {
+  justify-content: center;
+}
+
+.sidebar-nav.nav-align-bottom {
+  justify-content: flex-end;
+}
+
+.sidebar.collapsed .sidebar-nav {
+  padding: 0;
+}
+
+.sidebar-top {
+  flex-shrink: 0;
+}
+
+.sidebar-footer {
+  flex-shrink: 0;
+}
+
+.sidebar.collapsed .sidebar-footer {
+  padding: 0;
+}
+
+.sidebar-item-group {
+  flex-shrink: 0;
+}
+
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 12px 0 10px;
+  cursor: pointer;
+  transition: background 0.2s;
+  color: var(--text-secondary);
+  font-size: 14px;
+  height: 40px;
+  white-space: nowrap;
+}
+
+.sidebar.collapsed .sidebar-item {
+  padding: 0 0 0 10px;
+  border-radius: 0;
+  height: 40px;
+}
+
+.sidebar-item:hover {
+  background: rgba(37, 99, 235, 0.08);
+  color: var(--primary-color);
+}
+
+.sidebar-item.active {
+  background: rgba(37, 99, 235, 0.12);
+  color: var(--primary-color);
+  font-weight: 500;
+}
+
+.sidebar-item.sidebar-item-toggle {
+  position: relative;
+}
+
+.sidebar-item.sidebar-item-toggle:hover {
+  background: rgba(0, 0, 0, 0.04);
+  color: var(--text-primary);
+}
+
+.sidebar-item.sidebar-item-toggle:active {
+  background: rgba(0, 0, 0, 0.08);
+}
+
+.sidebar-item.sidebar-item-toggle.checked {
+  color: var(--success-color);
+}
+
+.sidebar-item.sidebar-item-toggle.checked .sidebar-item-icon {
+  color: var(--success-color);
+}
+
+.sidebar-item.sidebar-item-radio {
+  position: relative;
+}
+
+.sidebar-item.sidebar-item-radio:hover {
+  background: rgba(0, 0, 0, 0.04);
+  color: var(--text-primary);
+}
+
+.sidebar-item.sidebar-item-radio:active {
+  background: rgba(0, 0, 0, 0.08);
+}
+
+.sidebar-item.sidebar-item-radio.selected {
+  color: var(--success-color);
+}
+
+.sidebar-item.sidebar-item-radio.selected .sidebar-item-icon::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  background: var(--success-color);
+  border-radius: 50%;
+}
+
+.sidebar-submenu .sidebar-submenu-item {
+  position: relative;
+  z-index: 0;
+}
+
+.sidebar-item-icon {
+  width: 20px;
+  height: 20px;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.sidebar-item-text {
+  flex: 1;
+  overflow: hidden;
+  opacity: 1;
+  transition: opacity var(--sidebar-transition-duration) var(--sidebar-transition-timing);
+}
+
+.sidebar.collapsed .sidebar-item-text {
+  opacity: 0;
+}
+
+.sidebar-divider-item {
+  height: 1px;
+  background: var(--border-color);
+  margin: 12px auto;
+  width: 80%;
+}
+
+.sidebar.collapsed .sidebar-divider-item {
+  margin: 12px auto;
+  width: 80%;
+}
+
+.sidebar-submenu {
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows var(--submenu-animation-duration) ease;
+}
+
+.sidebar-submenu.expanded {
+  grid-template-rows: 1fr;
+}
+
+.sidebar-submenu > * {
+  min-height: 0;
+}
+
+.sidebar-submenu::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 4px;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), transparent);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.sidebar-submenu::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 4px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.1), transparent);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.sidebar-popover {
+  position: fixed;
+  z-index: 1000;
+  min-width: 160px;
+  background: var(--bg-sidebar);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.sidebar-popover-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 12px;
+  height: 36px;
+  cursor: pointer;
+  color: var(--text-secondary);
+  font-size: 14px;
+  transition:
+    background 0.2s,
+    color 0.2s;
+}
+
+.sidebar-popover-item:hover {
+  background: rgba(37, 99, 235, 0.08);
+  color: var(--primary-color);
+}
+
+.sidebar-popover-item.active {
+  color: var(--primary-color);
+  font-weight: 500;
+}
+
+.sidebar-popover-item.sidebar-popover-toggle.checked {
+  color: var(--success-color);
+}
+
+.sidebar-popover-item.sidebar-popover-radio.selected {
+  color: var(--success-color);
+}
+
+.sidebar-popover-item.sidebar-popover-radio.selected .sidebar-popover-icon::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  background: var(--success-color);
+  border-radius: 50%;
+}
+
+.sidebar-popover-icon {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.sidebar-popover-text {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

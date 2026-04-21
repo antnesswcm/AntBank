@@ -1,0 +1,22 @@
+[package]
+name = "Ant题库"
+version = "0.1.0"
+description = "Ant题库 - 简单的题库应用"
+authors = ["antness"]
+edition = "2021"
+
+[lib]
+name = "ant_bank_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = [] }
+tauri-plugin-dialog = "2"
+tauri-plugin-prevent-default = "2"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+rust-embed = "8"
+

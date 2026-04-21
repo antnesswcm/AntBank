@@ -1,0 +1,19 @@
+.center-layout {
+  display: flex;
+  flex: 1;
+  overflow: auto;
+}
+
+.center-layout.center-horizontal {
+  justify-content: center;
+}
+
+.center-layout.center-vertical {
+  align-items: center;
+}
+
+.center-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
